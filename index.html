@@ -1,149 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Emperor Naed MC Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emperor Naed MC Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #121212; color: #f0f0f0; line-height: 1.6; }
 
-<style>
-    body { margin:0; background:#0d0d0d; color:white; font-family:Arial; display:flex; }
-    .sidebar {
-        width: 250px;
-        background:#111;
-        padding:20px;
-        height:100vh;
-        border-right:2px solid #00ff88;
+    a { color: #1e90ff; text-decoration: none; transition: all 0.3s ease; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: linear-gradient(135deg, #1e1e1e 0%, #1e90ff 100%);
+      padding: 3rem 1rem;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .sidebar h2 { color:#00ff88; }
-    .sidebar a {
-        display:block;
-        color:white;
-        text-decoration:none;
-        padding:10px 0;
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.05);
+      transform: rotate(45deg);
+      animation: slide 10s linear infinite;
     }
-    .sidebar a:hover { color:#00ff88; }
+    @keyframes slide {
+      0% { transform: rotate(45deg) translate(-100%, -100%); }
+      100% { transform: rotate(45deg) translate(100%, 100%); }
+    }
+    header h1 { font-size: 3rem; margin-bottom: 0.5rem; animation: fadeUp 1s ease forwards; opacity: 0; }
+    header p { font-size: 1.3rem; margin-bottom: 1.5rem; animation: fadeUp 1.2s ease forwards; opacity: 0; }
+    header a { display: inline-block; padding: 0.8rem 1.8rem; background: #ffcc00; color: #121212; border-radius: 5px; font-weight: bold; animation: fadeUp 1.4s ease forwards; opacity: 0; }
 
-    .main {
-        padding:30px;
-        flex:1;
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    h1, h2 { color:#00ff88; }
-    h3 { color:#00ff88; margin-bottom:5px; }
-    ul { margin-left:20px; margin-top:5px; }
-    p { margin-top:5px; }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(18,18,18,0.95);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      z-index: 1000;
+    }
+    nav a { font-weight: bold; color: #fff; }
+    nav a:hover { color: #ffcc00; }
 
+    section { padding: 5rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+    h2 { font-size: 2.5rem; color: #ffcc00; margin-bottom: 2rem; text-align: center; position: relative; }
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #1e90ff;
+      display: block;
+      margin: 0.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+
+    .services, .experience, .skills { display: grid; gap: 2rem; margin-top: 2rem; }
     .card {
-        background:#141414;
-        padding:20px;
-        border-radius:12px;
-        border:1px solid #00ff88;
-        margin-bottom:15px;
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeCard 0.6s forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+    .card:nth-child(5) { animation-delay: 1s; }
+    .card:nth-child(6) { animation-delay: 1.2s; }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(30,144,255,0.5);
     }
 
-    a.button {
-        display:inline-block;
-        padding:10px 15px;
-        background:#00ff88;
-        color:#000;
-        border-radius:8px;
-        font-weight:bold;
-        text-decoration:none;
-        margin-top:10px;
+    .card h3 { margin-bottom: 1rem; color: #1e90ff; }
+    .card ul { list-style: disc inside; }
+    .card ul li { margin-bottom: 0.6rem; }
+
+    @keyframes fadeCard {
+      to { opacity: 1; transform: translateY(0); }
     }
-</style>
+
+    .skills .skill-list { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+    .skill { background: #ffcc00; padding: 0.5rem 1rem; border-radius: 25px; font-weight: bold; color: #121212; transition: transform 0.3s ease; }
+    .skill:hover { transform: scale(1.1); }
+
+    footer { text-align: center; padding: 3rem 1rem; background: #1e1e1e; border-top: 2px solid #1e90ff; }
+    footer a { background: #1e90ff; padding: 1rem 2rem; border-radius: 5px; color: #fff; font-weight: bold; transition: all 0.3s ease; }
+    footer a:hover { background: #ffcc00; color: #121212; }
+
+    @media (min-width: 768px) {
+      .services, .experience { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1200px) {
+      .services, .experience { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <h2>Portfolio</h2>
-    <a href="#services">Professional Services</a>
-    <a href="#experience">Experience & Background</a>
-    <a href="#skills">Technical Skills</a>
-    <a href="#discord">Discord</a>
-</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+  </nav>
 
-<div class="main">
+  <header>
     <h1>Emperor Naed MC Portfolio</h1>
+    <p>Professional Minecraft Server Setup & Management</p>
+    <a href="#">Join Discord Server</a>
+  </header>
 
-    <div id="services" class="card">
-        <h2>Professional Services</h2>
-
-        <h3>Server Setup</h3>
+  <section id="services">
+    <h2>Professional Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>🛠️ Server Setup</h3>
         <ul>
-            <li>Full server installation & configuration</li>
-            <li>Plugin selection & customization</li>
-            <li>Economy setup & balancing</li>
-            <li>Performance optimization & security hardening</li>
+          <li>Full server installation & configuration</li>
+          <li>Plugin selection & customization</li>
+          <li>Performance optimization & security hardening</li>
+          <li>Economy setup & balancing</li>
         </ul>
         <p><strong>Requirements:</strong> Paid hosting from reputable providers only.</p>
-
-        <h3>Server Management</h3>
+      </div>
+      <div class="card">
+        <h3>⚙️ Server Management</h3>
         <ul>
-            <li>Daily server monitoring</li>
-            <li>Plugin updates & maintenance</li>
-            <li>Backup management</li>
-            <li>Community moderation support</li>
+          <li>Daily server monitoring</li>
+          <li>Plugin updates & maintenance</li>
+          <li>Backup management</li>
+          <li>Performance troubleshooting</li>
+          <li>Community moderation support</li>
         </ul>
         <p><strong>Requirements:</strong> Full FTP/console access on paid host.</p>
-
-        <h3>Staff Training</h3>
+      </div>
+      <div class="card">
+        <h3>👥 Staff Training</h3>
         <ul>
-            <li>Staff recruitment strategies</li>
-            <li>Custom training programs</li>
-            <li>Rule enforcement guidelines</li>
-            <li>Conflict resolution training</li>
-            <li>Documentation creation</li>
+          <li>Staff recruitment strategies</li>
+          <li>Custom training programs</li>
+          <li>Rule enforcement guidelines</li>
+          <li>Conflict resolution training</li>
+          <li>Documentation creation</li>
         </ul>
-
-        <h3>Server Customization</h3>
+      </div>
+      <div class="card">
+        <h3>🎨 Server Customization</h3>
         <ul>
-            <li>Custom enchantments</li>
-            <li>Scoreboard & tab designs</li>
-            <li>Chat formatting & resource pack integration</li>
+          <li>Custom enchantments</li>
+          <li>Scoreboard & tab designs</li>
+          <li>Chat formatting & resource pack integration</li>
         </ul>
-
-        <h3>Growth Consulting</h3>
+      </div>
+      <div class="card">
+        <h3>📊 Growth Consulting</h3>
         <ul>
-            <li>Marketing strategy development</li>
-            <li>Community engagement & retention optimization</li>
-            <li>Event planning & social media guidance</li>
-            <li>Analytics & reporting</li>
+          <li>Marketing strategy development</li>
+          <li>Community engagement & retention optimization</li>
+          <li>Event planning & social media guidance</li>
+          <li>Analytics & reporting</li>
         </ul>
+      </div>
     </div>
+  </section>
 
-    <div id="experience" class="card">
-        <h2>Experience & Background</h2>
-        <ul>
-            <li><strong>Owner of HeartGens:</strong> First server I made; it did not do well but I learned basic server-making skills.</li>
-            <li><strong>Owner of MeteorGenz:</strong> First successful server, averaged 10-15 players. Great community and made a lot of friends.</li>
-            <li><strong>Owner of DragonGenzs:</strong> Decent server, averaged 5-8 players but was shutdown.</li>
-            <li><strong>Owner of Infernium:</strong> Developed for a while but on release did not do well; probably my least successful server.</li>
-            <li><strong>Owner of CometGenz:</strong> Previously a moderator; later received the server to revive it. Had 2 seasons before a rebrand.</li>
-            <li><strong>Owner of Expeditions SMP:</strong> Not released yet; rebrand of CometGenz. Excited for release.</li>
-        </ul>
+  <section id="experience">
+    <h2>Experience & Background</h2>
+    <div class="experience">
+      <div class="card">
+        <h3>Owner of HeartGens</h3>
+        <p>It was my first server I have made and it did not do well but I learned basic server making skills.</p>
+      </div>
+      <div class="card">
+        <h3>Owner of MeteorGenz</h3>
+        <p>It was my first successful server and averaged 10-15 players. Had a great community and made a lot of friends from that server.</p>
+      </div>
+      <div class="card">
+        <h3>Owner of CometGenz</h3>
+        <p>I used to be a moderator on this server back in February 2025. It was what inspired me to make Minecraft servers but shut down a month later due to lack of players. But in September 2025, the owner gave me the server to bring it back and it did pretty well. Had 2 seasons before a rebrand.</p>
+      </div>
+      <div class="card">
+        <h3>Owner of Expeditions SMP</h3>
+        <p>Not released yet but is the rebrand of CometGenz and is a fun idea and I can't wait to release it.</p>
+      </div>
     </div>
+  </section>
 
-    <div id="skills" class="card">
-        <h2>Technical Skills & Expertise</h2>
-        <ul>
-            <li>Performance Optimization</li>
-            <li>EssentialsX</li>
-            <li>LuckPerms</li>
-            <li>WorldEdit/WorldGuard</li>
-            <li>PlaceholderAPI</li>
-            <li>Staff Training</li>
-            <li>Event Planning</li>
-            <li>Discord Management</li>
-            <li>Advertising</li>
-        </ul>
+  <section id="skills">
+    <h2>Technical Skills & Expertise</h2>
+    <div class="skills">
+      <div class="skill-list">
+        <div class="skill">Performance Optimization</div>
+        <div class="skill">EssentialsX</div>
+        <div class="skill">LuckPerms</div>
+        <div class="skill">WorldEdit/WorldGuard</div>
+        <div class="skill">Vault</div>
+        <div class="skill">PlaceholderAPI</div>
+        <div class="skill">Staff Training</div>
+        <div class="skill">Event Planning</div>
+        <div class="skill">Discord Management</div>
+        <div class="skill">Marketing Strategy</div>
+      </div>
     </div>
+  </section>
 
     <div id="discord" class="card">
         <h2>Ready to Build Something Amazing?</h2>
         <a href="https://discord.gg/K6TH8ze9BV" target="_blank" class="button">Join Discord Server</a>
     </div>
-</div>
 
 </body>
 </html>
+
+
