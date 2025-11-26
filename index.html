@@ -4,148 +4,146 @@
 <meta charset="UTF-8">
 <title>Emperor Naed MC Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-    body {
-        margin:0;
-        background:#0d0d0d;
-        color:white;
-        font-family:Arial, sans-serif;
-        line-height:1.6;
-    }
-
-    header {
+    body { margin:0; background:#0d0d0d; color:white; font-family:Arial; display:flex; }
+    .sidebar {
+        width: 250px;
         background:#111;
-        padding:30px;
-        border-bottom:2px solid #00ff88;
-        text-align:center;
-    }
-
-    header h1 {
-        color:#00ff88;
-        margin:0;
-    }
-
-    section {
-        max-width:900px;
-        margin:40px auto;
         padding:20px;
-        background:#141414;
-        border:1px solid #00ff88;
-        border-radius:12px;
+        height:100vh;
+        border-right:2px solid #00ff88;
     }
-
-    h2 {
-        color:#00ff88;
-        margin-top:0;
-    }
-
-    ul {
-        margin-left:20px;
-    }
-
-    a {
-        color:#00ff88;
+    .sidebar h2 { color:#00ff88; }
+    .sidebar a {
+        display:block;
+        color:white;
         text-decoration:none;
+        padding:10px 0;
+    }
+    .sidebar a:hover { color:#00ff88; }
+
+    .main {
+        padding:30px;
+        flex:1;
     }
 
-    a:hover {
-        text-decoration:underline;
+    h1, h2 { color:#00ff88; }
+    h3 { color:#00ff88; margin-bottom:5px; }
+    ul { margin-left:20px; margin-top:5px; }
+    p { margin-top:5px; }
+
+    .card {
+        background:#141414;
+        padding:20px;
+        border-radius:12px;
+        border:1px solid #00ff88;
+        margin-bottom:15px;
     }
 
-    .button {
+    a.button {
         display:inline-block;
-        padding:10px 20px;
+        padding:10px 15px;
         background:#00ff88;
         color:#000;
         border-radius:8px;
         font-weight:bold;
+        text-decoration:none;
         margin-top:10px;
     }
 </style>
 </head>
 <body>
 
-<header>
+<div class="sidebar">
+    <h2>Portfolio</h2>
+    <a href="#services">Professional Services</a>
+    <a href="#experience">Experience & Background</a>
+    <a href="#skills">Technical Skills</a>
+    <a href="#discord">Discord</a>
+</div>
+
+<div class="main">
     <h1>Emperor Naed MC Portfolio</h1>
-</header>
 
-<section>
-    <h2>Professional Services</h2>
+    <div id="services" class="card">
+        <h2>Professional Services</h2>
 
-    <h3>Server Setup</h3>
-    <ul>
-        <li>Full server installation & configuration</li>
-        <li>Plugin selection & customization</li>
-        <li>Economy setup & balancing</li>
-        <li>Performance optimization & security hardening</li>
-    </ul>
-    <p><strong>Requirements:</strong> Paid hosting from reputable providers only.</p>
+        <h3>Server Setup</h3>
+        <ul>
+            <li>Full server installation & configuration</li>
+            <li>Plugin selection & customization</li>
+            <li>Economy setup & balancing</li>
+            <li>Performance optimization & security hardening</li>
+        </ul>
+        <p><strong>Requirements:</strong> Paid hosting from reputable providers only.</p>
 
-    <h3>Server Management</h3>
-    <ul>
-        <li>Daily server monitoring</li>
-        <li>Plugin updates & maintenance</li>
-        <li>Backup management</li>
-        <li>Community moderation support</li>
-    </ul>
-    <p><strong>Requirements:</strong> Full FTP/console access on paid host.</p>
+        <h3>Server Management</h3>
+        <ul>
+            <li>Daily server monitoring</li>
+            <li>Plugin updates & maintenance</li>
+            <li>Backup management</li>
+            <li>Community moderation support</li>
+        </ul>
+        <p><strong>Requirements:</strong> Full FTP/console access on paid host.</p>
 
-    <h3>Staff Training</h3>
-    <ul>
-        <li>Staff recruitment strategies</li>
-        <li>Custom training programs</li>
-        <li>Rule enforcement guidelines</li>
-        <li>Conflict resolution training</li>
-        <li>Documentation creation</li>
-    </ul>
+        <h3>Staff Training</h3>
+        <ul>
+            <li>Staff recruitment strategies</li>
+            <li>Custom training programs</li>
+            <li>Rule enforcement guidelines</li>
+            <li>Conflict resolution training</li>
+            <li>Documentation creation</li>
+        </ul>
 
-    <h3>Server Customization</h3>
-    <ul>
-        <li>Custom enchantments</li>
-        <li>Scoreboard & tab designs</li>
-        <li>Chat formatting & resource pack integration</li>
-    </ul>
+        <h3>Server Customization</h3>
+        <ul>
+            <li>Custom enchantments</li>
+            <li>Scoreboard & tab designs</li>
+            <li>Chat formatting & resource pack integration</li>
+        </ul>
 
-    <h3>Growth Consulting</h3>
-    <ul>
-        <li>Marketing strategy development</li>
-        <li>Community engagement & retention optimization</li>
-        <li>Event planning & social media guidance</li>
-        <li>Analytics & reporting</li>
-    </ul>
-</section>
+        <h3>Growth Consulting</h3>
+        <ul>
+            <li>Marketing strategy development</li>
+            <li>Community engagement & retention optimization</li>
+            <li>Event planning & social media guidance</li>
+            <li>Analytics & reporting</li>
+        </ul>
+    </div>
 
-<section>
-    <h2>Experience & Background</h2>
-    <ul>
-        <li><strong>Owner of HeartGens:</strong> Was my first server I have made and it did not do well but I learned basic server making skills</li>
-        <li><strong>Owner of MeteorGenz:</strong> First successful server, averaged 10-15 players. Great community and made a lot of friends.</li>
-        <li><strong>Owner of DragonGenzs:</strong> Decent server, averaged 5-8 players but was shutdown.</li>
-        <li><strong>Owner of Infernium:</strong> Developed for a while but on release did not do well, probably my least successful server.</li>
-        <li><strong>Owner of CometGenz:</strong> Previously a moderator; later received the server to revive it. Had 2 seasons before a rebrand.</li>
-        <li><strong>Owner of Expeditions SMP:</strong> Not released yet. Rebrand of CometGenz; fun idea for upcoming release.</li>
-    </ul>
-</section>
+    <div id="experience" class="card">
+        <h2>Experience & Background</h2>
+        <ul>
+            <li><strong>Owner of HeartGens:</strong> First server I made; it did not do well but I learned basic server-making skills.</li>
+            <li><strong>Owner of MeteorGenz:</strong> First successful server, averaged 10-15 players. Great community and made a lot of friends.</li>
+            <li><strong>Owner of DragonGenzs:</strong> Decent server, averaged 5-8 players but was shutdown.</li>
+            <li><strong>Owner of Infernium:</strong> Developed for a while but on release did not do well; probably my least successful server.</li>
+            <li><strong>Owner of CometGenz:</strong> Previously a moderator; later received the server to revive it. Had 2 seasons before a rebrand.</li>
+            <li><strong>Owner of Expeditions SMP:</strong> Not released yet; rebrand of CometGenz. Excited for release.</li>
+        </ul>
+    </div>
 
-<section>
-    <h2>Technical Skills & Expertise</h2>
-    <ul>
-        <li>Performance Optimization</li>
-        <li>EssentialsX</li>
-        <li>LuckPerms</li>
-        <li>WorldEdit/WorldGuard</li>
-        <li>PlaceholderAPI</li>
-        <li>Staff Training</li>
-        <li>Event Planning</li>
-        <li>Discord Management</li>
-        <li>Advertising</li>
-    </ul>
-</section>
+    <div id="skills" class="card">
+        <h2>Technical Skills & Expertise</h2>
+        <ul>
+            <li>Performance Optimization</li>
+            <li>EssentialsX</li>
+            <li>LuckPerms</li>
+            <li>WorldEdit/WorldGuard</li>
+            <li>PlaceholderAPI</li>
+            <li>Staff Training</li>
+            <li>Event Planning</li>
+            <li>Discord Management</li>
+            <li>Advertising</li>
+        </ul>
+    </div>
 
-<section>
-    <h2>Ready to Build Something Amazing?</h2>
-    <a href="https://discord.gg/K6TH8ze9BV" target="_blank" class="button">Join Discord Server</a>
-</section>
+    <div id="discord" class="card">
+        <h2>Ready to Build Something Amazing?</h2>
+        <a href="https://discord.gg/K6TH8ze9BV" target="_blank" class="button">Join Discord Server</a>
+    </div>
+</div>
 
 </body>
 </html>
